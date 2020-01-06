@@ -1,16 +1,18 @@
 """
-Your module documentation here
+Module that contain a simple calculator
 """
 
 
 class CalculatorClass(object):
     """
-    Your class documentation here
+    Calculator Class with simple methods
     """
 
     def sum(self, num_list):
         """
-        Your method documentation here
+        Return the sum of a number list
         """
-        # your sum code here
-        return "not implement yet"  # Remove this dummy line
+        final_sum = 0
+        for num in num_list:
+            final_sum += num
+        return final_sum
