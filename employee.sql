@@ -57,4 +57,12 @@ INSERT INTO employee_employee_hobby VALUES (3, 2);
 INSERT INTO employee_employee_hobby VALUES (4, 1);
 INSERT INTO employee_employee_hobby VALUES (4, 3);
 
+
+ALTER TABLE employee ADD boss_id INTEGER;
+ALTER TABLE employee ADD FOREIGN KEY (boss_id) REFERENCES employee;
+
+UPDATE employee SET boss_id = 4 WHERE id = 1;
+UPDATE employee SET boss_id = 3 WHERE id = 2;
+UPDATE employee SET boss_id = 2 WHERE id = 3;
+UPDATE employee SET boss_id = 3 WHERE id = 4;
 -- ...
