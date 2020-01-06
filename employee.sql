@@ -30,4 +30,31 @@ INSERT INTO employee VALUES (2, 'Oscar', 'Garza', 2);
 INSERT INTO employee VALUES (3, 'Antonio', 'Romero', 4);
 INSERT INTO employee VALUES (4, 'Felipe', 'Ortega', 6);
 
+CREATE TABLE employee_hobby (
+    id          SERIAL,
+    name        VARCHAR NOT NULL,
+    description VARCHAR NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE employee_employee_hobby (
+    employee_id INTEGER REFERENCES employee,
+    employee_hobby_id INTEGER REFERENCES employee_hobby,
+    UNIQUE (employee_id, employee_hobby_id)
+);
+
+INSERT INTO employee_hobby VALUES (1, 'Pintar', 'Pintar y/o dibujar.');
+INSERT INTO employee_hobby VALUES (2, 'Cantar', 'Cantar de forma profesional o amateur. La ducha no cuenta.');
+INSERT INTO employee_hobby VALUES (3, 'Bailar', 'Bailar en grupo o solo.');
+
+INSERT INTO employee_employee_hobby VALUES (1, 1);
+INSERT INTO employee_employee_hobby VALUES (1, 2);
+INSERT INTO employee_employee_hobby VALUES (2, 3);
+INSERT INTO employee_employee_hobby VALUES (2, 2);
+INSERT INTO employee_employee_hobby VALUES (3, 3);
+INSERT INTO employee_employee_hobby VALUES (3, 1);
+INSERT INTO employee_employee_hobby VALUES (3, 2);
+INSERT INTO employee_employee_hobby VALUES (4, 1);
+INSERT INTO employee_employee_hobby VALUES (4, 3);
+
 -- ...
