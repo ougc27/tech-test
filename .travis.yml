@@ -10,11 +10,11 @@ virtualenv:
 
 install:
   # shippable compatibility
+  - sudo apt-get install postgresql-9.5
   - sudo mkdir -p /etc/ssl/private-copy; sudo mkdir -p /etc/ssl/private; sudo mv /etc/ssl/private/* /etc/ssl/private-copy/; sudo rm -r /etc/ssl/private; sudo mv /etc/ssl/private-copy /etc/ssl/private; sudo chmod -R 0700 /etc/ssl/private; sudo chown -R postgres /etc/ssl/private
-  - sudo su -c "sudo -u postgres /usr/lib/postgresql/9.3/bin/postgres -c "config_file=/etc/postgresql/9.3/main/postgresql.conf" > /tmp/pg.log 2>&1 & sleep 5s"
-
+  - sudo su -c "sudo -u postgres /usr/lib/postgresql/9.5/bin/postgres -c "config_file=/etc/postgresql/9.5/main/postgresql.conf" > /tmp/pg.log 2>&1 & sleep 5s"
   - createdb employee_employee
-  - pip install flake8 pylint
+  - pip install flake8 pylint==1.6.4
 
 script:
   - flake8 ${TRAVIS_BUILD_DIR}/ --exclude=__init__.py
