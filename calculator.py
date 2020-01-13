@@ -1,16 +1,20 @@
+# -*- coding: UTF-8 -*-
+
 """
-Your module documentation here
+Módulo para una calculadora
 """
 
 
 class CalculatorClass(object):
     """
-    Your class documentation here
+    Calculadora con operaciones básicas
     """
 
     def sum(self, num_list):
         """
-        Your method documentation here
+        Dada una lista de números enteros retorna la suma de ellos
+        :param: num_list: list
+        :return int: suma de elemtos de la lista
         """
-        # your sum code here
-        return "not implement yet"  # Remove this dummy line
+        result = sum(num_list)
+        return result
