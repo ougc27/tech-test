@@ -63,4 +63,12 @@ INSERT INTO employee_hobby_employee_rel
     (4, 2),
     (4, 1);
 
+-- Agregar jefe
+ALTER TABLE employee ADD boss_id INTEGER;
+ALTER TABLE employee ADD FOREIGN KEY (boss_id) REFERENCES employee;
+
+-- Asignar jefe y empleado
+UPDATE employee SET boss_id = 2 WHERE id = 1;
+UPDATE employee SET boss_id = 2 WHERE id = 3;
+
 -- ...
