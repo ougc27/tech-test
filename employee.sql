@@ -32,7 +32,35 @@ INSERT INTO employee (first_name, last_name, department_id) VALUES('Gabriela', '
 INSERT INTO employee (first_name, last_name, department_id) VALUES('Anuar', 'de la Cruz', 3);
 INSERT INTO employee (first_name, last_name, department_id) VALUES('Marisol', 'Vasconcelos', 3);
 
+-- Crear tabla hobby
 CREATE TABLE employee_hobby (
+    id          SERIAL PRIMARY KEY,
+    name        VARCHAR NOT NULL,
+    description VARCHAR
 );
+
+-- Insertar hobby
+INSERT INTO employee_hobby ("name", description) VALUES('Leer', 'Leer libros');
+INSERT INTO employee_hobby ("name", description) VALUES('Dibujar', 'Dibujar paisajes');
+INSERT INTO employee_hobby ("name", description) VALUES('Cantar', 'Cantar en el karaoke');
+
+-- Crear tabla para relacionar empleado y hobby
+CREATE TABLE employee_hobby_employee_rel (
+	id          SERIAL PRIMARY KEY,
+    employee_id INTEGER REFERENCES employee,
+    employee_hobby_id INTEGER REFERENCES employee_hobby
+);
+
+-- Insertar hobby - empleado
+INSERT INTO employee_hobby_employee_rel
+    (employee_id, employee_hobby_id) VALUES
+    (1, 1),
+    (1, 2),
+    (2, 2),
+    (2, 3),
+    (3, 1),
+    (3, 3),
+    (4, 2),
+    (4, 1);
 
 -- ...
