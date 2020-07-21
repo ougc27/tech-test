@@ -28,4 +28,18 @@ UPDATE employee SET id_department='1' WHERE id=5;
 select e.first_name, e.last_name, e.id_department,ed.name,ed.description  from employee e join employee_department ed on ed.id = e.id_depart
 ment;
 
+CREATE TABLE employee_hobby (id INT PRIMARY KEY, name VARCHAR(20), description VARCHAR(60));
+
+INSERT INTO employee_hobby (id, name, description) VALUES (1,'Viajar','Viajar'),(2,'Musica','Escuchar musica'), (3,'TV','Ver tv');
+
+CREATE TABLE detalle_employee_hobby (id INT PRIMARY KEY, id_employee INT, id_hobby INT);
+
+ALTER TABLE detalle_employee_hobby ADD CONSTRAINT employee FOREIGN KEY (id_employee) REFERENCES employee (id);
+
+ALTER TABLE detalle_employee_hobby ADD CONSTRAINT hobby FOREIGN KEY (id_hobby) REFERENCES employee_hobby (id);
+
+INSERT INTO detalle_employee_hobby (id, id_employee, id_hobby) VALUES (1,'1','1'),(2,'1','2');
+
+INSERT INTO detalle_employee_hobby (id, id_employee, id_hobby) VALUES (3,'2','2'),(4,'2','3'), (5,'3','1'),(6,'3','3'),(7,'4','1'),(8,'4','3'), (9,'5','2'),(10,'5','1');
+
 -- ...
