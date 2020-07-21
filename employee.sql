@@ -42,4 +42,10 @@ INSERT INTO detalle_employee_hobby (id, id_employee, id_hobby) VALUES (1,'1','1'
 
 INSERT INTO detalle_employee_hobby (id, id_employee, id_hobby) VALUES (3,'2','2'),(4,'2','3'), (5,'3','1'),(6,'3','3'),(7,'4','1'),(8,'4','3'), (9,'5','2'),(10,'5','1');
 
--- ...
+ALTER TABLE employee ADD id_boss int;
+ALTER TABLE employee ADD CONSTRAINT boss FOREIGN KEY (id_boss) REFERENCES employee (id);
+UPDATE employee SET id_boss ='1' WHERE id=1;
+UPDATE employee SET id_boss ='1' WHERE id=2;
+UPDATE employee SET id_boss ='1' WHERE id=3;
+UPDATE employee SET id_boss ='2' WHERE id=4;
+UPDATE employee SET id_boss ='2' WHERE id=5;
