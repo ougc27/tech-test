@@ -3,4 +3,4 @@ ADD BossID int,
 FOREIGN KEY(BossID) REFERENCES  employee(id);
 
 UPDATE employee
-SET BossID = '3'
+SET BossID = '3';
