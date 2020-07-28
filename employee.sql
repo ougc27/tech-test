@@ -49,9 +49,9 @@ CREATE TABLE hobbys (
 );
 
 INSERT INTO employee_hobby VALUES
-(1, 'Programacion', 'Sistemas'),
-(2, 'Futbol', 'Deporte'),
-(3, 'Ejercicio', 'Gimnasio');
+('Programacion', 'Sistemas'),
+('Futbol', 'Deporte'),
+('Ejercicio', 'Gimnasio');
 
 INSERT INTO hobbys VALUES
 ('1','1'),
@@ -60,9 +60,4 @@ INSERT INTO hobbys VALUES
 ('2','1'),
 ('2','3');
 
-ALTER TABLE employee
-ADD BossID int,
-FOREIGN KEY(BossID) REFERENCES  employee(id);
 
-UPDATE employee
-SET BossID = '3'
