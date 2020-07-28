@@ -60,4 +60,9 @@ INSERT INTO hobbys VALUES
 ('2','1'),
 ('2','3');
 
+ALTER TABLE employee
+ADD BossID int,
+FOREIGN KEY(BossID) REFERENCES  employee(id);
 
+UPDATE employee
+SET BossID = '3'
