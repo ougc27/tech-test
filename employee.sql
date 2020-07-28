@@ -33,3 +33,29 @@ INSERT INTO employee VALUES
 ('Oliver', 'Cervantez','2'),
 ('Bob', 'Gonzalez','1'),
 ('Jesus', 'Guzman','5');
+
+CREATE TABLE employee_hobby (
+    id int IDENTITY(1,1) PRIMARY KEY,
+    name varchar(255),
+    description varchar(255)
+);
+
+CREATE TABLE hobbys (
+    id int IDENTITY(1,1) PRIMARY KEY,
+    Employee_ID int,
+    FOREIGN KEY (Employee_ID) REFERENCES employee(id),
+    Hobby_ID int,
+    FOREIGN KEY (Hobby_ID) REFERENCES employee_hobby(id)
+);
+
+INSERT INTO employee_hobby VALUES
+('Programacion', 'Sistemas'),
+('Futbol', 'Deporte'),
+('Ejercicio', 'Gimnasio');
+
+INSERT INTO hobbys VALUES
+('2','1'),
+('2','2'),
+('2','3'),
+('3','1'),
+('3','3');
