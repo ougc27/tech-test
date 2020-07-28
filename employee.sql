@@ -1,15 +1,6 @@
--- Your sql code in this file
--- NOTE: Please, don't add sentence to create database in this script file.
---       You can create database locally to test it.
---       Consider add ';' at end sentence.
+ALTER TABLE employee
+ADD BossID int,
+FOREIGN KEY(BossID) REFERENCES  employee(id);
 
-CREATE TABLE employee (
-);
-
-CREATE TABLE employee_department (
-);
-
-CREATE TABLE employee_hobby (
-);
-
--- ...
+UPDATE employee
+SET BossID = '3'
