@@ -78,5 +78,10 @@ VALUES(1,1),
       (4,3),
       (4,2);
 
+-- TEST3
+
+ALTER TABLE employee ADD is_boss boolean;
+
+UPDATE employee set is_boss = TRUE where id IN (1,4);
 
 -- ...
