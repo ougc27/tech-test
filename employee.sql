@@ -40,5 +40,43 @@ VALUES(1,'employee','1'),
       (2,'employee','2'),	
       (3,'employee','3'),	
       (2,'employee','4'); 
+      );
+
+
+
+--TEST 2
+
+CREATE TABLE employee_hobby (
+    id serial,
+    name varchar(50),
+    description varchar(250),
+    primary key (id)
+    ); 
+
+
+INSERT INTO employee_hobby(name,description)
+VALUES('correr','description'),
+      ('leer','description'),	
+      ('pintar','description');
+
+CREATE TABLE employee_rel_hobby (
+    id serial,
+    employee_id int,
+    hobby_id int,
+    primary key (id),
+    FOREIGN KEY (employee_id) REFERENCES employee(id),
+    FOREIGN KEY (hobby_id) REFERENCES employee_hobby(id)
+    ); 
+
+INSERT INTO employee_rel_hobby(employee_id,hobby_id)
+VALUES(1,1),
+      (1,2),	
+      (2,2),
+      (2,3),
+      (3,2),
+      (3,1),
+      (4,3),
+      (4,2);
+
 
 -- ...
